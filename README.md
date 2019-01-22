@@ -1,10 +1,20 @@
 # Travis CI demo
 
-This project is a very simple test suite intended to demonstrate use of the Travis CI continuous integration platform.
+This project is a very simple test suite intended to demonstrate use of the [Travis CI][travis-ci] continuous integration platform.
 The `index.js` file contains a few functions and the `tests/unit.test.js` file contains a test suite for these functions.
 
-<!-- START doctoc -->
-<!-- END doctoc -->
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+
+- [Requirements](#requirements)
+- [Usage](#usage)
+  - [Run the test suite locally](#run-the-test-suite-locally)
+  - [Enable your repository on Travis CI](#enable-your-repository-on-travis-ci)
+  - [Configure the project for Travis CI](#configure-the-project-for-travis-ci)
+  - [Commit and push a change to trigger another automated build](#commit-and-push-a-change-to-trigger-another-automated-build)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 
 
