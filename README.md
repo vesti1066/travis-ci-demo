@@ -85,34 +85,39 @@ Make sure it is configured in your GitHub repository's settings:
 > GitHub will notify Travis CI that new commits are available,
 > and Travis CI will trigger an automated build.
 
-### Make sure you follow the Travis CI conventions
+
+
+### Configure the project for Travis CI
 
 The [Travis CI Tutorial][travis-ci-tutorial] explains how to get started.
-In a nutshell, your project should have a `.travis.yml` file at the root which describes what language it is so that Travis CI knows how to build it.
+In a nutshell, your project should have a `.travis.yml` file at the root
+which describes what language it is so that Travis CI knows how to build it.
 
-> Take a look at [this project's `.travis.yml` file](.travis.yml).
+For a [Node.js project][travis-ci-node] like this one, which was developed with [Node.js][node] version 10,
+your `.travis.yml` file should look like this:
 
-For [Node.js projects][node], Travis CI will do the following by default:
+```yml
+language: node_js
+versions:
+  - '10'
+```
+
+Create this file, then add and commit it:
+
+```bash
+$> git add .travis.yml
+$> git commit -m "Add Travis configuration"
+```
+
+For [Node.js projects][travis-ci-node], Travis CI will do the following by default:
 
 * Install your dependencies with `npm ci`.
 * Run your tests with `npm test`.
 
 > Take a look at [this project's `package.json` file](package.json)
-> and note that a `test` script is configured to run the project's automated tests with [Mocha][mocha].
+> and note that a `test` script is already configured to run the project's automated tests with [Mocha][mocha].
 
-
-
-### Commit and push a change to trigger an automated build
-
-Make and commit any change:
-
-```bash
-$> echo >> change
-$> git add change
-$> git commit -m "Change"
-```
-
-Push your changes to GitHub:
+Push the change:
 
 ```bash
 $> git push origin master
@@ -131,11 +136,35 @@ your automated build should execute, run your test suite, and complete successfu
 
 
 
+### Commit and push a change to trigger another automated build
+
+Make and commit any change:
+
+```bash
+$> echo >> change
+$> git add change
+$> git commit -m "Change"
+```
+
+Push your changes to GitHub:
+
+```bash
+$> git push origin master
+```
+
+Check the [Travis CI page][travis-ci] again.
+You should see a new automated build appear for your project.
+
+With the webhook in place,
+Travis CI will trigger an automated build of your project every time you push a commit to GitHub.
+
+
+
 
 
 [mocha]: https://mochajs.org
 [node]: https://nodejs.org
 [travis-ci]: https://travis-ci.org
 [travis-ci-node]: https://docs.travis-ci.com/user/languages/javascript-with-nodejs/
-[tracis-ci-repos]: https://travis-ci.org/account/repositories
+[travis-ci-repos]: https://travis-ci.org/account/repositories
 [travis-ci-tutorial]: https://docs.travis-ci.com/user/tutorial/
